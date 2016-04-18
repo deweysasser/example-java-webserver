@@ -15,6 +15,7 @@ import com.sun.net.httpserver.HttpServer;
  * @author Dewey Sasser
  * 
  */
+@SuppressWarnings("restriction")
 public class Server {
 
 	public static void main(String[] args) throws IOException {

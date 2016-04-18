@@ -2,8 +2,6 @@ package com.deweysasser.example.webserver;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
@@ -13,6 +11,7 @@ import com.sun.net.httpserver.HttpHandler;
  * @author Dewey Sasser
  *
  */
+@SuppressWarnings("restriction")
 public class HelloPage implements HttpHandler {
 
 	@Override
