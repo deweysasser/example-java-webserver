@@ -31,15 +31,17 @@ public class Server {
 		server.createContext("/error", new ErrorPage());
 		server.createContext("/goodbye", new GoodbyePage());
 
-		// Handle 10 simaltaneous requests using an executor pattern
-		ExecutorService e = Executors.newFixedThreadPool(10);
+		// Handle 10 simaltaneous requests using an executor pattern. Pass a
+		// ThreadFactory which sets theads as daemon, so the program will exit
+		// when the server exits.
+
+		ExecutorService e = Executors.newFixedThreadPool(10, r -> {
+			Thread t = new Thread(r);
+			t.setDaemon(true);
+			return t;
+		});
 
 		server.setExecutor(e);
-
-		// Because you haven't set the daemon flag on the exeuctor threads, this
-		// will run forever, preventing your app from exiting. If you give the
-		// exeuctorservice a thread factory that uses Thread.setDaemon(boolean)
-		// you can change that behavior.
 
 		server.start();
 
