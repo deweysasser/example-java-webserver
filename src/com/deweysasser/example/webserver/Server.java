@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 import com.sun.net.httpserver.HttpServer;
 
@@ -35,10 +36,14 @@ public class Server {
 		// ThreadFactory which sets theads as daemon, so the program will exit
 		// when the server exits.
 
-		ExecutorService e = Executors.newFixedThreadPool(10, r -> {
-			Thread t = new Thread(r);
-			t.setDaemon(true);
-			return t;
+		ExecutorService e = Executors.newFixedThreadPool(10, new ThreadFactory() {
+			
+			@Override
+			public Thread newThread(Runnable r) {
+				Thread t = new Thread(r);
+				t.setDaemon(true);
+				return t;
+			}
 		});
 
 		server.setExecutor(e);
