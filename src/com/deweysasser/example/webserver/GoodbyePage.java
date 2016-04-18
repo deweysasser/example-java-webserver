@@ -25,7 +25,7 @@ public class GoodbyePage implements HttpHandler {
 		os.write(response.getBytes());
 		os.close();
 		
-		System.exit(0);
+		req.getHttpContext().getServer().stop(0);		
 	}
 
 }
