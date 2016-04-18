@@ -17,8 +17,6 @@ public class ErrorPage implements HttpHandler {
 
 	@Override
 	public void handle(HttpExchange req) throws IOException {
-		PrintWriter writer = new PrintWriter(new OutputStreamWriter(req.getResponseBody()));
-		
 		String response = "<html><h1>Go away, lout!</h1></html>";
 		
 		req.sendResponseHeaders(500, response.length());

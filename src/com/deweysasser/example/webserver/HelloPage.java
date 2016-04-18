@@ -17,9 +17,9 @@ public class HelloPage implements HttpHandler {
 
 	@Override
 	public void handle(HttpExchange req) throws IOException {
-		PrintWriter writer = new PrintWriter(new OutputStreamWriter(req.getResponseBody()));
-		
-		String response = "<html><h1>Hello World</h1>Do you want an error?  Try <a href=\"error\">this</a></html>";
+		String response = "<html><h1>Hello World</h1> " 
+				+ "<p>Do you want an error?  Try <a href=\"error\">this</a></p>"
+				+ "</html>";
 		
 		req.sendResponseHeaders(200, response.length());
 		OutputStream os = req.getResponseBody();
