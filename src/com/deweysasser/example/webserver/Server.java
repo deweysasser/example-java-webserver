@@ -29,6 +29,7 @@ public class Server {
 		// might want your contexts to have subcontexts.
 		server.createContext("/", new HelloPage());
 		server.createContext("/error", new ErrorPage());
+		server.createContext("/goodbye", new GoodbyePage());
 
 		// Handle 10 simaltaneous requests using an executor pattern
 		ExecutorService e = Executors.newFixedThreadPool(10);
