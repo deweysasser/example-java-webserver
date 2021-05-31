@@ -1,3 +1,10 @@
+ARCHIVED
+========
+
+This project is not maintained.  It was written to get a friend started on an internal project, and is likely of little general interest.
+
+---
+
 example-java-webserver
 ======================
 
